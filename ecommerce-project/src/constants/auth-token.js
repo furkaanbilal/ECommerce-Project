@@ -1,0 +1,1 @@
+export const ECommerceToken="ECommerce_Furkaan_Token";
