@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Users,
   Package,
@@ -7,13 +7,15 @@ import {
 } from "lucide-react";
 import { getAdapter } from "axios";
 import { getUsers } from "../../services/user-services";
+import { UserContext } from "../../context/app-contexts";
 
 const Dashboard = () => {
+  const{users}=useContext(UserContext);
  
   const stats = [
     {
       title: "Total Users",
-      value:30,
+      value:users.length,
       icon: <Users size={30} />,
     },
     {
@@ -23,12 +25,12 @@ const Dashboard = () => {
     },
     {
       title: "Orders",
-      value: 34,
+      value: 0,
       icon: <ShoppingCart size={30} />,
     },
     {
       title: "Revenue",
-      value: "₹45,500",
+      value: "₹0",
       icon: <IndianRupee size={30} />,
     },
   ];
@@ -84,12 +86,12 @@ const Dashboard = () => {
 
           <div className="flex justify-between border-b border-zinc-700 pb-3">
             <span>🛒 New order placed</span>
-            <span className="text-gray-400">45 min ago</span>
+            <span className="text-gray-400">Pending..</span>
           </div>
 
           <div className="flex justify-between">
             <span>💰 Payment received</span>
-            <span className="text-gray-400">1 hour ago</span>
+            <span className="text-gray-400">Pending..</span>
           </div>
         </div>
       </div>

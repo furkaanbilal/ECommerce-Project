@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { getUsers } from "../../services/user-services";
 import Dashboard from "./Dashboard";
+import { UserContext } from "../../context/app-contexts";
 
 const UserList = () => {
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const{users,setUsers}=useContext(UserContext);
 
   const getUsersList = async () => {
       const response = await getUsers();

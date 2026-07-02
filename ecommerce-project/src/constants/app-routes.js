@@ -8,5 +8,9 @@ export const Routes = {
   },
   user:{
    getUsers:"/users"
+  },
+  category:{
+    getAll:"/category",
+    create:"/category"
   }
 };

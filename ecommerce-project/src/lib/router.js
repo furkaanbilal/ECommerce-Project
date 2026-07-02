@@ -10,9 +10,10 @@ import SignUp from "../pages/SignUp";
 import ChangePassword from "../pages/ChangePassword";
 import AdminLayout from "../layout/admin-layout/AdminLayout";
 import Dashboard from "../pages/admin/Dashboard";
-import Products from "../pages/admin/Products";
-import Categories from "../pages/admin/Categories";
+import Products from "../pages/admin/product/Products";
+import Categories from "../pages/admin/category/Categories";
 import UserList from "../pages/admin/UserList";
+import CreateCategory from "../pages/admin/category/CreateCategory";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, Component: Dashboard },
       { path: "products", Component: Products },
-      { path: "categories", Component: Categories  },
+      { path: "categories", Component: Categories},
+      { path: "categories/create-categories", Component: CreateCategory},
       { path: "usersList", Component: UserList  },
     ],
   },

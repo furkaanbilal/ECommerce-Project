@@ -5,9 +5,11 @@ import App from "./App.jsx";
 import { RouterProvider } from "react-router";
 import router from "./lib/router.js";
 import { Toaster } from "react-hot-toast";
+import { UserProvider } from "./context/app-contexts.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <UserProvider>
     <Toaster position="top-center" toastOptions={{
           duration: 3000,
           style: {
@@ -31,6 +33,7 @@ createRoot(document.getElementById("root")).render(
           },
         }}/>
     <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>,
 );
  
