@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
 import { getCategories } from "../../../services/category-services";
+import { BASE_URL } from "../../../constants/app-urls";
+import { CategoryContext } from "../../../context/category-context";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([]);
-  const getCategoryList = async () => {
-    let response = await getCategories();
-    console.log(response.data);
-    setCategories(response.data);
-  };
-  useEffect(() => {
-    getCategoryList();
-  }, []);
+  const{categories}=useContext(CategoryContext);
+ 
   return (
     <div className="min-h-screen bg-black p-4 sm:p-6 lg:p-8">
       {/* Header */}
@@ -48,7 +43,7 @@ const Categories = () => {
 
                 <td className="px-6 py-4">
                   <img
-                    src={category.filePath}
+                    src={`${BASE_URL}${category.filePath}`}
                     alt={category.name}
                     className="w-16 h-16 object-cover rounded-lg border border-zinc-700"
                   />
@@ -87,7 +82,7 @@ const Categories = () => {
                 <span className="text-gray-400">Image</span>
                    <td className="px-6 py-4">
                   <img
-                    src={category.filePath}
+                    src={`${BASE_URL}${category.filePath}`}
                     alt={category.name}
                     className="w-16 h-16 object-cover rounded-lg border border-zinc-700"
                   />

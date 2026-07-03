@@ -6,6 +6,5 @@ export const getCategories = async () => {
 };
 
 export const createCategories = async (formData) => {
-  return (await apiClient.post(Routes.category.create,formData)).data;
+  return (await apiClient.post(Routes.category.create, formData)).data;
 };
-

@@ -1,21 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { getUsers } from "../../services/user-services";
 import Dashboard from "./Dashboard";
-import { UserContext } from "../../context/app-contexts";
+import { UserContext } from "../../context/user-contexts";
 
 const UserList = () => {
-  const{users,setUsers}=useContext(UserContext);
-
-  const getUsersList = async () => {
-      const response = await getUsers();
-      if (response.isSuccess) {
-        setUsers(response.data);
-      }
-  };
-
-  useEffect(() => {
-    getUsersList();
-  }, []);
+  const{users}=useContext(UserContext);
 
   return (
     <div className="min-h-screen bg-black p-4 sm:p-6 lg:p-8">

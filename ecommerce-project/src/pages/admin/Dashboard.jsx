@@ -7,7 +7,7 @@ import {
 } from "lucide-react";
 import { getAdapter } from "axios";
 import { getUsers } from "../../services/user-services";
-import { UserContext } from "../../context/app-contexts";
+import { UserContext } from "../../context/user-contexts";
 
 const Dashboard = () => {
   const{users}=useContext(UserContext);

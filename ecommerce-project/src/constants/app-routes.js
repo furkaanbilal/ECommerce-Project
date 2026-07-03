@@ -12,5 +12,18 @@ export const Routes = {
   category:{
     getAll:"/category",
     create:"/category"
+  },
+  product:{
+    create:"/products",
+    catId:"/products",
+  },
+  productDetail:{
+    get:"/productDetails",
+    uploadImages:"/productDetails/upload-product-details-images"
+  },
+  cart:{
+    addCart:"/cart",
+    getCart:"/cart",
+    deleteCart:"/cart"
   }
 };

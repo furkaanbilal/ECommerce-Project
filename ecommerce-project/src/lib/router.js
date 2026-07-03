@@ -14,6 +14,12 @@ import Products from "../pages/admin/product/Products";
 import Categories from "../pages/admin/category/Categories";
 import UserList from "../pages/admin/UserList";
 import CreateCategory from "../pages/admin/category/CreateCategory";
+import CreateProduct from "../pages/admin/product/CreateProduct";
+import ProductList from "../pages/user/products/ProductList";
+import ProductDetails from "../pages/user/products/ProductDetails";
+import LearnMore from "../pages/user/LearnMore";
+import UploadImages from "../pages/admin/UploadImages";
+import Cart from "../pages/user/cart/Cart";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +31,11 @@ const router = createBrowserRouter([
       { path: "contact-us", Component: ContactUs },
       { path: "login", Component: Login },
       { path: "sign-up", Component: SignUp },
+      { path: "learnMore", Component: LearnMore },
+      { path: "cart", Component: Cart },
       { path: "change-password", Component: ChangePassword },
+      {path: "products/category/:id" , Component:ProductList},
+      {path: "products/productDetails/:id" , Component:ProductDetails}
     ],
   },
   {
@@ -36,7 +46,9 @@ const router = createBrowserRouter([
       { path: "products", Component: Products },
       { path: "categories", Component: Categories},
       { path: "categories/create-categories", Component: CreateCategory},
+      { path: "products/create-products", Component: CreateProduct},
       { path: "usersList", Component: UserList  },
+      { path: "uploadImages/:id", Component: UploadImages  },
     ],
   },
   {

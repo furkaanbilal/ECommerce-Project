@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Search, ShoppingCart, User, Menu, X, ShoppingBag } from "lucide-react";
 import { Link, NavLink } from "react-router";
+import DynamicNavbar from "./DynamicNavbar";
+import { CartContext } from "../../context/cart-context";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const{carts}=useContext(CartContext)
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About Us", path: "/about-us" },
@@ -71,13 +73,13 @@ const Header = () => {
             {/* Right Icons */}
 
             <div className="flex items-center gap-3">
-              <button className="relative p-2 hover:bg-zinc-900 rounded-lg transition">
+              <Link to="cart"  className="relative p-2 hover:bg-zinc-900 rounded-lg transition">
                 <ShoppingCart />
 
                 <span className="absolute -top-1 -right-1 bg-orange-500 text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                  0
+                  {carts.length}
                 </span>
-              </button>
+              </Link>
 
               <div className="relative group hidden md:block">
                 <button className="p-2 rounded-lg hover:bg-zinc-900 transition">
@@ -215,6 +217,7 @@ const Header = () => {
           </Link> */}
         </nav>
       </div>
+      <DynamicNavbar/>
     </>
   );
 };
