@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, NavLink, useParams } from "react-router";
 import { Star, ShoppingCart, Eye } from "lucide-react";
 import { getProductsByCategoryId } from "../../../services/product-services";
 import { BASE_URL } from "../../../constants/app-urls";
@@ -7,7 +7,7 @@ import { BASE_URL } from "../../../constants/app-urls";
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
-
+ 
   const getProducts = async (id) => {
     const response = await getProductsByCategoryId(id);
 
@@ -22,15 +22,17 @@ const ProductList = () => {
 
   return (
     <div className="min-h-screen bg-black text-white py-10 px-4 md:px-8">
-      <div className="max-w-7xl mx-auto">
-     
+      <div className="max-w-7xl mx-auto" >
+    
         {products.length === 0 ? (
           <h2 className="text-center text-gray-400 text-xl">
             No Products Found
           </h2>
         ) : (
+          
           <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((product) => (
+               <Link to={`/products/productDetails/${product.productDetailId}`}>
               <div
                 key={product.id}
                 className="group bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-orange-500 transition-all duration-300 hover:-translate-y-2"
@@ -76,6 +78,7 @@ const ProductList = () => {
                   </div>
                 </div>
               </div>
+              </Link>
             ))}
           </div>
         )}

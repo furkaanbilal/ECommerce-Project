@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { ImageUp, Trash2 } from "lucide-react";
 import { uploadImages } from "../../services/productDetails-service";
 import toast from "react-hot-toast";
@@ -11,6 +11,8 @@ const UploadImages = () => {
   const [files, setFiles] = useState([]);
 
   const { handleSubmit } = useForm();
+
+  const navigate=useNavigate();
 
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -32,7 +34,9 @@ const UploadImages = () => {
 
     console.log(formData);
     let response = await uploadImages(formData);
-    if (response.isSuccess) toast.success(response.data);
+    if (response.isSuccess) toast.success("Image uploaded");
+    navigate("/admin/products")
+
   };
 
   return (

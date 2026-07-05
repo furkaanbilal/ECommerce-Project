@@ -20,6 +20,7 @@ import ProductDetails from "../pages/user/products/ProductDetails";
 import LearnMore from "../pages/user/LearnMore";
 import UploadImages from "../pages/admin/UploadImages";
 import Cart from "../pages/user/cart/Cart";
+import UpdateProduct from "../pages/admin/product/UpdateProduct";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
       { path: "products/create-products", Component: CreateProduct},
       { path: "usersList", Component: UserList  },
       { path: "uploadImages/:id", Component: UploadImages  },
+      { path: "products/prod-id-/:id", Component: UpdateProduct  },
     ],
   },
   {

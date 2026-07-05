@@ -14,32 +14,32 @@ createRoot(document.getElementById("root")).render(
     <UserProvider>
       <CategoryProvider>
         <CartProvider>
-        <Toaster
-          position="top-center"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: "#111827",
-              color: "#fff",
-              border: "1px solid #f97316",
-              borderRadius: "12px",
-              padding: "16px",
-            },
-            success: {
-              iconTheme: {
-                primary: "#f97316",
-                secondary: "#fff",
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: "#111827",
+                color: "#fff",
+                border: "1px solid #f97316",
+                borderRadius: "12px",
+                padding: "16px",
               },
-            },
-            error: {
-              iconTheme: {
-                primary: "#ef4444",
-                secondary: "#fff",
+              success: {
+                iconTheme: {
+                  primary: "#f97316",
+                  secondary: "#fff",
+                },
               },
-            },
-          }}
-        />
-        <RouterProvider router={router} />
+              error: {
+                iconTheme: {
+                  primary: "#ef4444",
+                  secondary: "#fff",
+                },
+              },
+            }}
+          />
+          <RouterProvider router={router} />
         </CartProvider>
       </CategoryProvider>
     </UserProvider>

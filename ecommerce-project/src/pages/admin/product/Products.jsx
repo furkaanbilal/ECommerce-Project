@@ -4,7 +4,7 @@ import { CategoryContext } from "../../../context/category-context";
 import { getProductsByCategoryId } from "../../../services/product-services";
 import toast from "react-hot-toast";
 import { BASE_URL } from "../../../constants/app-urls";
-import { Images, ImagesIcon, ImageUp, Upload } from "lucide-react";
+import { Edit, Images, ImagesIcon, ImageUp, Upload } from "lucide-react";
 
 const Products = () => {
   const { categories } = useContext(CategoryContext);
@@ -66,6 +66,7 @@ const Products = () => {
               <th className="px-6 py-4 text-left">Units</th>
               <th className="px-6 py-4 text-left">PD-Id</th>
               <th className="px-6 py-4 text-left">Upload Images</th>
+              <th className="px-6 py-4 text-left">Edit</th>
             </tr>
           </thead>
 
@@ -98,6 +99,11 @@ const Products = () => {
                 <td className="px-6 py-4 text-gray-300">
                   <Link to={`/admin/uploadImages/${product.productDetailId}`}>
                     <ImagesIcon />
+                  </Link>
+                </td>
+                <td className="px-6 py-4 text-gray-300">
+                  <Link  to={`/admin/products/prod-id-/${product.id}`}>
+                    <Edit/>
                   </Link>
                 </td>
               </tr>
@@ -171,6 +177,12 @@ const Products = () => {
                 <span className="text-gray-400">Upload-Images</span>
                   <Link to={`/admin/uploadImages/${product.productDetailId}`}>
                     <ImagesIcon />
+                  </Link>
+                </td>
+                <td className="px-6 py-4 text-gray-300">
+                <span className="text-gray-400">Update-Product</span>
+                  <Link to={`/admin/products/prod-id-/${product.id}`}>
+                    <Edit />
                   </Link>
                 </td>
             </div>

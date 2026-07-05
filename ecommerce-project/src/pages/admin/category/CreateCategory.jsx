@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { createCategories } from "../../../services/category-services";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { CategoryContext } from "../../../context/category-context";
 
 const CreateCategory = () => {
+  const{getCategoryList}=useContext(CategoryContext);
   const {
     register,
     handleSubmit,
@@ -21,8 +23,9 @@ const CreateCategory = () => {
 
     let response = await createCategories(formData);
 
-    if (response.isSuccess) toast.success(response.data);
+    if (response.isSuccess) toast.success("Category Added Successfully");
     navigate("/admin/categories");
+    getCategoryList();
   };
 
   return (

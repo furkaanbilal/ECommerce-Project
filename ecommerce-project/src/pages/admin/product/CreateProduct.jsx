@@ -25,7 +25,7 @@ const CreateProduct = () => {
     formData.append("price", model.price);
     formData.append("file", model.file[0]);
     let response = await createProducts(formData);
-    if (response.isSuccess) toast.success(response.data);
+    if (response.isSuccess) toast.success("Product Added Successfully");
     navigate("/admin/products");
   };
   return (

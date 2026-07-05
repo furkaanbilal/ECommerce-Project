@@ -16,6 +16,9 @@ export const Routes = {
   product:{
     create:"/products",
     catId:"/products",
+    getAll:"/products",
+    updateProduct:"/products",
+    getById:"/products/prod-id-"
   },
   productDetail:{
     get:"/productDetails",

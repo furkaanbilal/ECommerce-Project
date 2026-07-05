@@ -8,19 +8,20 @@ import {
 import { getAdapter } from "axios";
 import { getUsers } from "../../services/user-services";
 import { UserContext } from "../../context/user-contexts";
+import { CategoryContext } from "../../context/category-context";
 
 const Dashboard = () => {
   const{users}=useContext(UserContext);
- 
+  const{categories}=useContext(CategoryContext)
   const stats = [
     {
       title: "Total Users",
       value:users.length,
-      icon: <Users size={30} />,
+      icon: <Users size={30}/>,
     },
     {
-      title: "Products",
-      value: 56,
+      title: "Categories",
+      value: categories.length,
       icon: <Package size={30} />,
     },
     {
