@@ -22,6 +22,7 @@ export const Routes = {
   },
   productDetail:{
     get:"/productDetails",
+    getByProductId:"/productDetails/product-id",
     uploadImages:"/productDetails/upload-product-details-images"
   },
   cart:{

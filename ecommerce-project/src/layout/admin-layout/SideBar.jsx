@@ -8,14 +8,15 @@ import {
   Settings,
   X,
   ShoppingBag,
+  PackageOpen,
 } from "lucide-react";
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
   const menu = [
     { name: "Dashboard", path: "/admin", icon: <LayoutDashboard size={20} /> },
+    { name: "Users", path: "/admin/usersList", icon: <Users size={20} /> },
     { name: "Categories", path: "/admin/categories", icon: <Tags size={20} /> },
     { name: "Products", path: "/admin/products", icon: <Package size={20} /> },
-    { name: "Users", path: "/admin/usersList", icon: <Users size={20} /> },
   ];
 
   return (

@@ -62,137 +62,204 @@ const ProductDetails = () => {
     (productDetails.price * productDetails.discount) / 100;
 
   return (
-    <div className="min-h-screen bg-black text-white py-8">
-      <div className="max-w-3xl mx-auto bg-zinc-900 rounded-xl shadow-2xl overflow-hidden">
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* LEFT SIDE */}
+   <div className="min-h-screen bg-[#0d0d0d] text-white py-8 lg:py-12 px-4">
+  <div className="max-w-7xl mx-auto">
 
-          <div>
-            {/* Main Image */}
+    {/* Heading */}
+    <div className="mb-8">
+      <h1 className="text-3xl md:text-4xl font-bold">
+        Product Details
+      </h1>
 
-            <div className="bg-zinc-800 rounded-2xl h-[400px] flex items-center justify-center overflow-hidden">
-              {selectedImage ? (
-                <img
-                  src={selectedImage}
-                  alt=""
-                  className="w-full h-full object-contain hover:scale-105 transition duration-500"
-                />
-              ) : (
-                <p>No Image</p>
-              )}
-            </div>
-
-            {/* Thumbnail Images */}
-
-            {images.length > 1 && (
-              <div className="flex gap-3 mt-5 overflow-x-auto">
-                {images.map((img, index) => (
-                  <img
-                    key={index}
-                    src={`${BASE_URL}/${img.filePath}`}
-                    alt=""
-                    onClick={() =>
-                      setSelectedImage(`${BASE_URL}/${img.filePath}`)
-                    }
-                    className={`w-24 h-24 rounded-xl object-cover cursor-pointer border-2 transition
-                      ${
-                        selectedImage === `${BASE_URL}/${img.filePath}`
-                          ? "border-orange-500"
-                          : "border-transparent"
-                      } hover:border-orange-400`}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* RIGHT SIDE */}
-
-          <div className="flex flex-col justify-center">
-            <span className="bg-orange-500 text-white px-4 py-2 rounded-full w-fit font-semibold">
-              {productDetails.discount}% OFF
-            </span>
-
-            <h1 className="text-4xl font-bold mt-5">{productDetails.title}</h1>
-
-            <div className="mt-6 space-y-4 text-gray-300">
-              <div className="flex items-center gap-3">
-                <FaBuilding className="text-orange-500" />
-                <span>
-                  <strong>Brand :</strong> {productDetails.brand}
-                </span>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <FaBoxOpen className="text-orange-500" />
-                <span>
-                  <strong>Unit :</strong> {productDetails.units}
-                </span>
-              </div>
-
-              {/* <div className="flex items-center gap-3">
-                <FaTag className="text-orange-500" />
-                <span>
-                  <strong>Category Id :</strong>{" "}
-                  {productDetails.categoryId}
-                </span>
-              </div> */}
-            </div>
-
-            {/* Price */}
-
-            <div className="mt-8">
-              <h2 className="text-5xl font-bold text-orange-500">
-                ₹{discountedPrice?.toFixed(2)}
-              </h2>
-
-              <div className="flex items-center gap-5 mt-3">
-                <span className="text-2xl line-through text-gray-500">
-                  ₹{productDetails.price}
-                </span>
-
-                <span className="text-green-400 text-xl">
-                  Save {productDetails.discount}%
-                </span>
-              </div>
-            </div>
-
-            {/* Description */}
-
-            <div className="mt-10">
-              <h2 className="text-2xl font-semibold mb-3 text-orange-500">
-                Description
-              </h2>
-
-              <p className="leading-8 text-gray-300">
-                {productDetails.description}
-              </p>
-            </div>
-
-            {/* Buttons */}
-
-            <div className="flex gap-5 mt-10">
-              <button onClick={addToCart} className="p-8 rounded-full bg-orange-500 text-black hover:bg-orange-400 transition">
-                <ShoppingCart size={20} />
-              </button>
-
-              {/* <button className="border border-orange-500 hover:bg-orange-500 transition px-8 py-4 rounded-xl font-bold">
-                Buy Now
-              </button> */}
-            </div>
-
-            {/* Footer */}
-
-            <div className="mt-10 border-t border-zinc-700 pt-5 text-gray-400">
-              Added :{" "}
-              {productDetails.createdOn
-                ? new Date(productDetails.createdOn).toLocaleDateString()
-                : "-"}
-            </div>
-          </div>
-        </div>
-      </div>
+      <div className="w-28 h-1 bg-orange-500 rounded-full mt-2"></div>
     </div>
+
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      {/* ================= LEFT ================= */}
+
+      <div className="bg-[#181818] rounded-3xl border border-zinc-800 p-5">
+
+        {/* Main Image */}
+
+        <div className="rounded-2xl overflow-hidden bg-black">
+
+          {selectedImage ? (
+
+            <img
+              src={selectedImage}
+              alt=""
+              className="w-full h-[300px] sm:h-[420px] lg:h-[520px] object-contain hover:scale-105 duration-500"
+            />
+
+          ) : (
+
+            <div className="h-[420px] flex justify-center items-center text-zinc-500">
+              No Image
+            </div>
+
+          )}
+
+        </div>
+
+        {/* Gallery */}
+
+        {images.length > 1 && (
+
+          <div className="flex gap-3 mt-5 overflow-x-auto pb-2">
+
+            {images.map((img, index) => (
+
+              <img
+                key={index}
+                src={`${BASE_URL}/${img.filePath}`}
+                alt=""
+                onClick={() =>
+                  setSelectedImage(`${BASE_URL}/${img.filePath}`)
+                }
+                className={`w-24 h-24 rounded-xl object-cover cursor-pointer border-2 transition flex-shrink-0
+
+                ${
+                  selectedImage === `${BASE_URL}/${img.filePath}`
+                    ? "border-orange-500 scale-105"
+                    : "border-zinc-700 hover:border-orange-400"
+                }`}
+              />
+
+            ))}
+
+          </div>
+
+        )}
+
+      </div>
+
+      {/* ================= RIGHT ================= */}
+
+      <div className="space-y-6">
+
+        {/* Title */}
+
+        <div className="bg-[#181818] rounded-3xl border border-zinc-800 p-6">
+
+          <span className="bg-orange-500 px-4 py-2 rounded-full font-semibold text-sm">
+            {productDetails.discount}% OFF
+          </span>
+
+          <h1 className="text-3xl lg:text-5xl font-bold mt-5 leading-tight">
+            {productDetails.title}
+          </h1>
+
+          <p className="text-zinc-400 mt-5 leading-8">
+            {productDetails.description}
+          </p>
+
+        </div>
+
+        {/* Price */}
+
+        <div className="grid grid-cols-2 gap-5">
+
+          <div className="bg-[#181818] rounded-2xl border border-zinc-800 p-6">
+
+            <p className="text-zinc-500 uppercase text-xs">
+              Final Price
+            </p>
+
+            <h2 className="text-3xl lg:text-4xl font-bold text-orange-500 mt-2">
+              ₹{discountedPrice?.toFixed(2)}
+            </h2>
+
+          </div>
+
+          <div className="bg-[#181818] rounded-2xl border border-zinc-800 p-6">
+
+            <p className="text-zinc-500 uppercase text-xs">
+              Original
+            </p>
+
+            <h2 className="text-2xl line-through text-zinc-500 mt-2">
+              ₹{productDetails.price}
+            </h2>
+
+            <p className="text-green-400 mt-2">
+              Save {productDetails.discount}%
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Product Info */}
+
+        <div className="bg-[#181818] rounded-3xl border border-zinc-800 overflow-hidden">
+
+          <div className="grid grid-cols-2">
+
+            <div className="p-5 border-b border-r border-zinc-800">
+
+              <div className="flex items-center gap-2 text-orange-500">
+                <FaBuilding />
+                <span className="text-sm">Brand</span>
+              </div>
+
+              <p className="mt-3 text-lg">
+                {productDetails.brand}
+              </p>
+
+            </div>
+
+            <div className="p-5 border-b border-zinc-800">
+
+              <div className="flex items-center gap-2 text-orange-500">
+                <FaBoxOpen />
+                <span className="text-sm">Units</span>
+              </div>
+
+              <p className="mt-3 text-lg">
+                {productDetails.units}
+              </p>
+
+            </div>
+
+            <div className="col-span-2 p-5">
+
+              <div className="flex items-center gap-2 text-orange-500">
+                <FaTag />
+                <span className="text-sm">
+                  Product Added
+                </span>
+              </div>
+
+              <p className="mt-3">
+
+                {productDetails.createdOn
+                  ? new Date(productDetails.createdOn).toLocaleDateString()
+                  : "-"}
+
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Button */}
+
+        <button
+          onClick={addToCart}
+          className="w-full bg-orange-500 hover:bg-orange-600 transition-all duration-300 rounded-2xl py-5 font-bold text-lg text-black flex justify-center items-center gap-3 shadow-lg hover:shadow-orange-500/40"
+        >
+          <ShoppingCart size={24} />
+          Add To Cart
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>
   );
 };
 

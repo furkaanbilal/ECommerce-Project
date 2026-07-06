@@ -21,6 +21,7 @@ import LearnMore from "../pages/user/LearnMore";
 import UploadImages from "../pages/admin/UploadImages";
 import Cart from "../pages/user/cart/Cart";
 import UpdateProduct from "../pages/admin/product/UpdateProduct";
+import AdminProductDetails from "../pages/admin/product/AdminProductDetails";
 
 const router = createBrowserRouter([
   {
@@ -51,8 +52,9 @@ const router = createBrowserRouter([
       { path: "usersList", Component: UserList  },
       { path: "uploadImages/:id", Component: UploadImages  },
       { path: "products/prod-id-/:id", Component: UpdateProduct  },
+      { path: "products/prod-details/:pdid", Component: AdminProductDetails},
     ],
-  },
+  }, 
   {
     path: "*",
     Component: PageNotFound,
